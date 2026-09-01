@@ -1,28 +1,20 @@
 <div align="center">
 
-# `arnav@github`
+<h3><code>arnav@github ~ $ ./contributions.sh</code></h3>
 
-**CS • AI • ML**
-
-*Bioengineering @ IIT Jodhpur — building software because that's where I keep ending up.*
-
-<br>
-
-<img src="./assets/contrib-heatmap.svg" width="920" alt="Animated GitHub contribution heatmap">
+<img src="./assets/contrib-heatmap.svg" width="860" alt="Animated contribution calendar for b25bb1004-wq" />
 
 <br><br>
 
-<code>arnav@github ~ $ whoami</code>
-
-<br><br>
+<h3><code>arnav@github ~ $ whoami</code></h3>
 
 <table>
 <tr>
 <td valign="top">
-<img src="./assets/arnav-ascii.svg" width="440" alt="Animated ASCII portrait">
+<img src="./assets/arnav-ascii.svg" width="370" alt="Animated ASCII portrait of Arnav" />
 </td>
 <td valign="top">
-<img src="./assets/info-card.svg" width="440" alt="Arnav profile card">
+<img src="./assets/info-card.svg" width="490" alt="Animated terminal profile card" />
 </td>
 </tr>
 </table>
@@ -31,47 +23,31 @@
 
 ---
 
-### `arnav@github ~ $ cat interests.txt`
+### `arnav@github ~ $ cat about.txt`
 
-```text
-computer science
-artificial intelligence
-machine learning
-software engineering
-building things that actually run
-```
+Bioengineering student at IIT Jodhpur focused on computer science, artificial intelligence, and machine learning. I build software from scratch, with particular interest in ML systems and practical developer tools.
 
 ### `arnav@github ~ $ cat stack.txt`
 
-**Languages**  
-`C++` `Python` `SQL`
-
-**AI / ML**  
-`PyTorch` `TensorFlow` `scikit-learn` `Hugging Face` `NumPy` `Pandas`
-
-**Development**  
-`Node.js` `Linux` `Git / GitHub`
+```text
+languages   C++ · Python · Node.js · SQL
+data / ml   NumPy · Pandas · scikit-learn · PyTorch · TensorFlow · Hugging Face
+tooling     Git / GitHub · Linux
+```
 
 ### `arnav@github ~ $ ls projects/`
 
-| Project | What it is |
-|---|---|
-| **[DESMOS Engine](https://github.com/hades-3008/DESMOS_engine)** | C++ mathematical expression parser, evaluator and function plotter |
-| **[F1 Pitstop Strategy](https://github.com/hades-3008/F1-Pitstop_Strategy)** | ML experimentation on F1 tyre degradation and lap-time prediction |
-| **[Spaghettify](https://github.com/hades-3008/spaghettify)** | Electron/WebGL desktop productivity overlay with real-time screen lensing |
-| **[StudyHub](https://github.com/hades-3008/StudyHub)** | Collaborative learning platform |
-| **[UNIVERSE](https://github.com/hades-3008/UNIVERSE)** | Experimental project / application |
+- [**DESMOS Engine**](https://github.com/b25bb1004-wq/DESMOS_engine) — Lightweight C++ mathematical expression parser/evaluator and function plotter, with tokenization, implicit multiplication, Shunting-Yard conversion, postfix/RPN evaluation, mathematical functions, and ASCII plotting.
+- [**F1 Pitstop Strategy**](https://github.com/b25bb1004-wq/F1-Pitstop_Strategy) — Machine-learning and data-analysis work using FastF1 data to model tyre degradation and investigate pit-stop strategy.
+- [**Spaghettify**](https://github.com/b25bb1004-wq/spaghettify) — Electron/WebGL productivity tool that uses a black-hole-style visual effect as a stretch and break reminder.
 
 ### `arnav@github ~ $ contact`
 
-- **Personal:** [arnavyadav3008@gmail.com](mailto:arnavyadav3008@gmail.com)
-- **IIT Jodhpur:** [b25bb1004@iitj.ac.in](mailto:b25bb1004@iitj.ac.in)
-- **GitHub:** [hades-3008](https://github.com/hades-3008)
-
-> Portfolio coming soon.
-
-<br>
+- GitHub — [b25bb1004-wq](https://github.com/b25bb1004-wq)
+- IIT Jodhpur — [b25bb1004@iitj.ac.in](mailto:b25bb1004@iitj.ac.in)
+- Personal — [arnavyadav3008@gmail.com](mailto:arnavyadav3008@gmail.com)
+- Portfolio — coming soon
 
 <div align="center">
-<code>build → break → learn → repeat</code>
+<code>build → test → learn → repeat</code>
 </div>

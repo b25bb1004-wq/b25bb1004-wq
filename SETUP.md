@@ -1,10 +1,10 @@
-# Setup — hades-3008 GitHub Profile
+# Setup — b25bb1004-wq GitHub Profile
 
 ## 1. Create the profile repository
 
 Create a **public** repository named exactly:
 
-`hades-3008`
+`b25bb1004-wq`
 
 Do not initialize it with another README if you plan to push this folder.
 
@@ -19,7 +19,7 @@ git init
 git branch -M main
 git add .
 git commit -m "build animated GitHub profile"
-git remote add origin https://github.com/hades-3008/hades-3008.git
+git remote add origin https://github.com/b25bb1004-wq/b25bb1004-wq.git
 git push -u origin main
 ```
 
@@ -42,7 +42,7 @@ Install the requirements:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r scripts/requirements.txt
+pip install -r requirements.txt
 ```
 
 Then:

@@ -6,27 +6,32 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-USERNAME = "hades-3008"
+USERNAME = "b25bb1004-wq"
 URL = f"https://github.com/users/{USERNAME}/contributions"
 OUT = Path("data/contributions.json")
 
 def parse():
-    r = requests.get(URL, timeout=30, headers={"User-Agent": "hades-3008-profile/1.0"})
+    r = requests.get(URL, timeout=30, headers={"User-Agent": "b25bb1004-wq-profile-art/1.0"})
     r.raise_for_status()
     soup = BeautifulSoup(r.text, "html.parser")
 
     days = []
-    for cell in soup.select("td.ContributionCalendar-day"):
+    # GitHub has used both td.ContributionCalendar-day and generic data-date cells.
+    for cell in soup.select("td.ContributionCalendar-day[data-date], [data-date][data-level]"):
         d = cell.get("data-date")
         if not d:
             continue
-        text = cell.get("aria-label", "")
+        # Current GitHub markup stores the human-readable count in a sibling
+        # <tool-tip for="contribution-day-component-…"> element; older markup
+        # exposed it directly as aria-label.
+        tooltip = soup.find("tool-tip", attrs={"for": cell.get("id")}) if cell.get("id") else None
+        text = cell.get("aria-label", "") or (tooltip.get_text(" ", strip=True) if tooltip else "")
         m = re.search(r"(\d[\d,]*)\s+contribution", text)
         count = int(m.group(1).replace(",", "")) if m else 0
         level = int(cell.get("data-level", "0"))
         days.append({"date": d, "count": count, "level": level})
 
-    if not days:
+    if len(days) < 300:
         # Fallback for markup changes: use data-date anywhere inside calendar.
         for cell in soup.select("[data-date]"):
             d = cell.get("data-date")
@@ -38,8 +43,8 @@ def parse():
             count = int(m.group(1).replace(",", "")) if m else 0
             days.append({"date": d, "count": count, "level": level})
 
-    if not days:
-        raise RuntimeError("Could not find contribution cells; inspect GitHub markup.")
+    if len(days) < 300:
+        raise RuntimeError("Could not find a complete contribution calendar; inspect GitHub markup.")
 
     days = sorted({x["date"]: x for x in days}.values(), key=lambda x: x["date"])
     counts = [x["count"] for x in days]
@@ -59,7 +64,7 @@ def parse():
         longest = max(longest, current)
         prev = d
 
-    today = date.today()
+    today = date.fromisoformat(days[-1]["date"])
     streak = 0
     by_date = {date.fromisoformat(x["date"]): x["count"] for x in days}
     d = today

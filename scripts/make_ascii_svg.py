@@ -7,8 +7,15 @@ RAMP = " .`:-=+*cs#%@"
 def main():
     src = Path("assets/source-prepped.png")
     out = Path("assets/arnav-ascii.svg")
-    width, height = 92, 62
-    img = Image.open(src).convert("L").resize((width, height), Image.Resampling.LANCZOS)
+    width, height = 100, 53
+    img = Image.open(src).convert("L")
+    # Portrait-oriented crop: retain face and shoulders while removing blank wall.
+    crop_w = int(img.width * 0.82)
+    crop_h = int(img.height * 0.70)
+    left = (img.width - crop_w) // 2
+    top = int(img.height * 0.16)
+    img = img.crop((left, top, left + crop_w, min(img.height, top + crop_h)))
+    img = img.resize((width, height), Image.Resampling.LANCZOS)
 
     rows = []
     for y in range(height):
@@ -24,7 +31,7 @@ def main():
     left = min((len(r)-len(r.lstrip()) for r in rows if r.strip()), default=0)
     rows = [r[left:].rstrip() for r in rows]
 
-    line_h, top, svg_w = 13, 16, 920
+    line_h, top, svg_w = 10, 14, 640
     svg_h = top + len(rows)*line_h + 20
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_w} {svg_h}" role="img" aria-label="Animated ASCII portrait">',
@@ -36,7 +43,7 @@ def main():
         y = top + (i+1)*line_h
         parts.append(
             f'<clipPath id="r{i}"><rect x="0" y="{y-line_h+1}" width="0" height="{line_h+2}">'
-            f'<animate attributeName="width" from="0" to="{svg_w}" dur="0.55s" begin="{i*0.045:.3f}s" fill="freeze"/></rect></clipPath>'
+            f'<animate attributeName="width" from="0" to="{svg_w}" dur="0.42s" begin="{i*0.040:.3f}s" fill="freeze"/></rect></clipPath>'
         )
         parts.append(f'<text x="10" y="{y}" clip-path="url(#r{i})">{safe}</text>')
     parts.append("</svg>")

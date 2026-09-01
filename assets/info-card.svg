@@ -1,25 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 520" role="img" aria-label="Arnav profile information">
-<rect x="1" y="1" width="538" height="518" rx="12" fill="#0d1117" stroke="#30363d"/>
-<rect x="1" y="1" width="538" height="34" rx="12" fill="#161b22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 350" role="img" aria-label="Animated terminal profile card for Arnav">
+<rect x="1" y="1" width="488" height="348" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="1" y="1" width="488" height="34" rx="10" fill="#161b22"/>
 <circle cx="20" cy="18" r="5" fill="#ff5f56"/><circle cx="38" cy="18" r="5" fill="#ffbd2e"/><circle cx="56" cy="18" r="5" fill="#27c93f"/>
 <text x="78" y="23" fill="#8b949e" font-family="ui-monospace,monospace" font-size="13">arnav@github — neofetch</text>
-<g font-family="ui-monospace,monospace" font-size="16">
-  <text x="28" y="75" fill="#58a6ff">arnav</text><text x="94" y="75" fill="#8b949e">@</text><text x="108" y="75" fill="#79c0ff">github</text>
-  <text x="28" y="104" fill="#8b949e">────────────────────────────────────────</text>
-  <text x="28" y="140" fill="#c9d1d9">Role</text><text x="154" y="140" fill="#8b949e">CS / AI / ML Builder</text>
-  <text x="28" y="170" fill="#c9d1d9">Study</text><text x="154" y="170" fill="#8b949e">IIT Jodhpur</text>
-  <text x="28" y="200" fill="#c9d1d9">Degree</text><text x="154" y="200" fill="#8b949e">Bioengineering</text>
-  <text x="28" y="244" fill="#58a6ff">Stack</text>
-  <text x="28" y="274" fill="#8b949e">C++ · Python · SQL</text>
-  <text x="28" y="304" fill="#8b949e">PyTorch · TensorFlow</text>
-  <text x="28" y="334" fill="#8b949e">scikit-learn · Hugging Face</text>
-  <text x="28" y="364" fill="#8b949e">Node.js · Linux · Git</text>
-  <text x="28" y="408" fill="#58a6ff">Focus</text>
-  <text x="28" y="438" fill="#8b949e">software · AI · ML · systems</text>
-  <text x="28" y="482" fill="#c9d1d9">$ build → break → learn → repeat</text>
+<g font-family="ui-monospace,monospace" font-size="15">
+<text x="28" y="72" fill="#58a6ff">arnav</text><text x="94" y="72" fill="#8b949e">@</text><text x="108" y="72" fill="#79c0ff">github</text>
+<text x="28" y="101" fill="#8b949e">──────────────────────────────────────</text>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.38s" begin="0.00s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" dur="0.38s" begin="0.00s" fill="freeze"/><text x="28" y="130" fill="#7ee787">USER</text><text x="154" y="130" fill="#c9d1d9">Arnav</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.38s" begin="0.13s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" dur="0.38s" begin="0.13s" fill="freeze"/><text x="28" y="160" fill="#7ee787">EDUCATION</text><text x="154" y="160" fill="#c9d1d9">IIT Jodhpur</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.38s" begin="0.26s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" dur="0.38s" begin="0.26s" fill="freeze"/><text x="28" y="190" fill="#7ee787">FOCUS</text><text x="154" y="190" fill="#c9d1d9">CS / AI / ML</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.38s" begin="0.39s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" dur="0.38s" begin="0.39s" fill="freeze"/><text x="28" y="220" fill="#7ee787">LANGUAGES</text><text x="154" y="220" fill="#c9d1d9">C++ / Python</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.38s" begin="0.52s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" dur="0.38s" begin="0.52s" fill="freeze"/><text x="28" y="250" fill="#7ee787">STACK</text><text x="154" y="250" fill="#c9d1d9">PyTorch / TensorFlow / HF</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.38s" begin="0.65s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" dur="0.38s" begin="0.65s" fill="freeze"/><text x="28" y="280" fill="#7ee787">TOOLS</text><text x="154" y="280" fill="#c9d1d9">Git / Linux / SQL</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.38s" begin="0.78s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" dur="0.38s" begin="0.78s" fill="freeze"/><text x="28" y="310" fill="#7ee787">BUILDING</text><text x="154" y="310" fill="#c9d1d9">ML systems + developer tools</text></g>
 </g>
-<style>
-.line{opacity:0;animation:fade .5s ease forwards}
-@keyframes fade{to{opacity:1}}
-</style>
 </svg>
