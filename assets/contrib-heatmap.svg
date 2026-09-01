@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 150" role="img" aria-label="GitHub contribution heatmap placeholder">
+<rect width="920" height="150" rx="10" fill="#0d1117" stroke="#30363d"/>
+<text x="30" y="45" fill="#8b949e" font-family="ui-monospace,monospace" font-size="16">arnav@github ~ $ ./contributions.sh</text>
+<text x="30" y="82" fill="#c9d1d9" font-family="ui-monospace,monospace" font-size="14">Contribution heatmap will populate automatically after the first GitHub Actions run.</text>
+<text x="30" y="116" fill="#58a6ff" font-family="ui-monospace,monospace" font-size="13">hades-3008 · 53 weeks · live public GitHub data · no token</text>
+</svg>
