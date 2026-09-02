@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 350" role="img" aria-label="Animated terminal stats for Arnav">
+<rect x="1" y="1" width="368" height="348" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="1" y="1" width="368" height="34" rx="10" fill="#161b22"/>
+<circle cx="20" cy="18" r="5" fill="#ff5f56"/><circle cx="38" cy="18" r="5" fill="#ffbd2e"/><circle cx="56" cy="18" r="5" fill="#27c93f"/>
+<text x="78" y="23" fill="#8b949e" font-family="ui-monospace,monospace" font-size="13">arnav@github — vibe_check</text>
+<style>
+text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+.type-clip{transform-box:fill-box;transform-origin:0% 50%;animation:typeIn 0.90s steps(18,end) forwards}
+@keyframes typeIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.cursor{animation:blink 0.9s step-end infinite;animation-delay:0.90s;animation-fill-mode:backwards}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.bar-fill{transform-box:fill-box;transform-origin:0% 50%;transform:scaleX(0);animation:growBar .6s ease-out forwards}
+.row{opacity:0;transform-box:fill-box;animation:rowIn .5s ease-out forwards}
+@keyframes rowIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes growBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+</style>
+<clipPath id="type-clip"><rect class="type-clip" x="26" y="56" width="155.20000000000002" height="20"/></clipPath>
+<g clip-path="url(#type-clip)">
+<text x="28" y="72" font-size="14" fill="#7ee787">~$ </text>
+<text x="53.2" y="72" font-size="14" fill="#c9d1d9">./vibe_check.sh</text>
+</g>
+<rect class="cursor" x="179.2" y="60" width="8" height="15" fill="#58a6ff"/>
+<text x="28" y="101" font-size="11" fill="#8b949e">──────────────────────────────</text>
+<g class="row" style="animation-delay:1.05s">
+<text x="28" y="132" font-size="12" fill="#7ee787">COFFEE</text>
+<rect x="150" y="121" width="150" height="14" rx="3" fill="#161b22" stroke="#30363d"/>
+<rect class="bar-fill" style="animation-delay:1.15s" x="150" y="121" width="139.5" height="14" rx="3" fill="#58a6ff"/>
+<text x="314" y="132" font-size="12" fill="#c9d1d9">93%</text>
+</g>
+<g class="row" style="animation-delay:1.23s">
+<text x="28" y="176" font-size="12" fill="#7ee787">DEBUGGING</text>
+<rect x="150" y="165" width="150" height="14" rx="3" fill="#161b22" stroke="#30363d"/>
+<rect class="bar-fill" style="animation-delay:1.33s" x="150" y="165" width="117.0" height="14" rx="3" fill="#3fb950"/>
+<text x="314" y="176" font-size="12" fill="#c9d1d9">78%</text>
+</g>
+<g class="row" style="animation-delay:1.41s">
+<text x="28" y="220" font-size="12" fill="#7ee787">SLEEP</text>
+<rect x="150" y="209" width="150" height="14" rx="3" fill="#161b22" stroke="#30363d"/>
+<rect class="bar-fill" style="animation-delay:1.51s" x="150" y="209" width="33.0" height="14" rx="3" fill="#f0883e"/>
+<text x="314" y="220" font-size="12" fill="#c9d1d9">22%</text>
+</g>
+<g class="row" style="animation-delay:1.59s">
+<text x="28" y="264" font-size="12" fill="#7ee787">CURIOSITY</text>
+<rect x="150" y="253" width="150" height="14" rx="3" fill="#161b22" stroke="#30363d"/>
+<rect class="bar-fill" style="animation-delay:1.69s" x="150" y="253" width="150.0" height="14" rx="3" fill="#a371f7"/>
+<text x="314" y="264" font-size="12" fill="#c9d1d9">100%</text>
+</g>
+</svg>

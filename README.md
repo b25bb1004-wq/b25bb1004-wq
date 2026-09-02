@@ -11,7 +11,7 @@
 <table>
 <tr>
 <td valign="top">
-<img src="./assets/arnav-ascii.svg" width="370" alt="Animated ASCII portrait of Arnav" />
+<img src="./assets/terminal-stats.svg" width="370" alt="Animated terminal that types a command then fills in stat bars" />
 </td>
 <td valign="top">
 <img src="./assets/info-card.svg" width="490" alt="Animated terminal profile card" />
