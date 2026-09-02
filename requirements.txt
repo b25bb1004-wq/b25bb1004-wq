@@ -1,3 +1,11 @@
+# Core — needed by the daily workflow (fetch + render the heatmap only).
 requests==2.32.3
 beautifulsoup4==4.12.3
 Pillow>=10.0
+
+# Portrait-only — run locally when the photo changes, not needed by CI.
+# rembg's first run downloads a ~176MB model (u2net.onnx) to ~/.u2net; that's
+# a one-time cost per machine, not per run.
+rembg[cpu]
+opencv-python-headless
+numpy

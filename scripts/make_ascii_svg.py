@@ -33,29 +33,38 @@ def main():
 
     line_h, top, svg_w = 10, 14, 640
     svg_h = top + len(rows)*line_h + 20
-    # CSS @keyframes, not SMIL <animate>: GitHub's README image pipeline
-    # strips <animate> elements outright, which left every clip-rect frozen
-    # at its `from` state (width 0) — a permanently blank portrait rather
-    # than a typing one. transform-box:fill-box makes scaleX(0->1) expand
-    # from each rect's own left edge regardless of its y position, so one
-    # shared class + a per-row animation-delay is enough for the stagger.
+    reveal_h = svg_h - top + 12  # covers from just above the first row to past the last
+    dur = max(1.4, len(rows) * 0.045)  # slow enough to actually watch, not instant
+
+    # A single reveal, not per-row wipes: one clip-rect grows downward from
+    # the top of the block (transform-box:fill-box + scaleY, same trick as
+    # the heatmap/info-card fix — CSS @keyframes, never SMIL <animate>, which
+    # GitHub's README image pipeline strips outright), so nothing below the
+    # current line exists yet rather than the whole portrait being present
+    # from frame one. A bright bar rides the leading edge and fades out once
+    # the reveal completes, standing in for the "cursor" the clip alone can't
+    # show since a mask has no visible edge of its own.
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_w} {svg_h}" role="img" aria-label="Animated ASCII portrait">',
         '<rect width="100%" height="100%" fill="#0d1117"/>',
         '<style>'
         'text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;fill:#c9d1d9}'
-        '.row{transform-box:fill-box;transform-origin:0% 50%;animation:wipeIn .42s ease-out both}'
-        '@keyframes wipeIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}'
-        '</style>'
+        f'.reveal{{transform-box:fill-box;transform-origin:0% 0%;animation:growDown {dur:.2f}s linear forwards}}'
+        '@keyframes growDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}'
+        f'.scanline{{animation:scanDown {dur:.2f}s linear forwards}}'
+        f'@keyframes scanDown{{0%{{transform:translateY(0);opacity:1}}96%{{opacity:1}}100%{{transform:translateY({reveal_h}px);opacity:0}}}}'
+        '</style>',
+        f'<clipPath id="reveal"><rect class="reveal" x="0" y="{top-12}" width="{svg_w}" height="{reveal_h}"/></clipPath>',
+        '<g clip-path="url(#reveal)">'
     ]
     for i, row in enumerate(rows):
         safe = row.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
         y = top + (i+1)*line_h
-        parts.append(
-            f'<clipPath id="r{i}"><rect class="row" style="animation-delay:{i*0.040:.3f}s" '
-            f'x="0" y="{y-line_h+1}" width="{svg_w}" height="{line_h+2}"/></clipPath>'
-        )
-        parts.append(f'<text x="10" y="{y}" clip-path="url(#r{i})">{safe}</text>')
+        parts.append(f'<text x="10" y="{y}">{safe}</text>')
+    parts.append('</g>')
+    parts.append(
+        f'<rect class="scanline" x="0" y="{top-12}" width="{svg_w}" height="2" fill="#58a6ff"/>'
+    )
     parts.append("</svg>")
     out.write_text("\n".join(parts), encoding="utf-8")
     print(f"Wrote {out}")

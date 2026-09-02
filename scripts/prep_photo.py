@@ -1,13 +1,24 @@
 #!/usr/bin/env python3
 """Prepare a profile photo for ASCII conversion.
 
-The supplied photo already has a clean light background, so this script
-uses grayscale + CLAHE/contrast enhancement. If rembg is installed and
-REM_BG=1 is set, it will also attempt background removal.
+Real photos with a busy background (a night sky, mountains, trees, distant
+lights) don't just need grayscale + contrast: the background's own brightness
+variation ends up in the ASCII ramp right alongside the subject, and a flatly
+lit face still converts to a dark, unreadable blob. Three steps fix that:
+
+1. Remove the background with rembg, so only the subject remains.
+2. Boost local contrast with OpenCV's CLAHE (contrast-limited adaptive
+   histogram equalization) — this is what gives a flat face real highlights
+   and shadows instead of one flat grey blob.
+3. Composite onto pure white so the background maps to the blank end of the
+   ASCII ramp (white -> space), rather than carrying speckled noise from
+   whatever was behind the subject.
 """
-import os, sys
+import sys
 from pathlib import Path
-from PIL import Image, ImageOps, ImageEnhance
+import numpy as np
+from PIL import Image, ImageOps
+import cv2
 
 def main():
     if len(sys.argv) < 2:
@@ -18,20 +29,21 @@ def main():
     out = src.parent / "source-prepped.png"
     img = Image.open(src).convert("RGB")
 
-    if os.getenv("REM_BG") == "1":
-        try:
-            from rembg import remove
-            img = remove(img)
-            if img.mode == "RGBA":
-                bg = Image.new("RGBA", img.size, "white")
-                bg.alpha_composite(img)
-                img = bg.convert("RGB")
-        except Exception as exc:
-            print(f"rembg unavailable/failed ({exc}); continuing without it.")
+    from rembg import remove
+    cutout = remove(img)  # RGBA, background made transparent
+    bg = Image.new("RGBA", cutout.size, "white")
+    bg.alpha_composite(cutout)
+    img = bg.convert("RGB")
 
-    gray = ImageOps.grayscale(img)
-    gray = ImageEnhance.Contrast(gray).enhance(1.45)
-    gray = ImageEnhance.Sharpness(gray).enhance(1.2)
+    # CLAHE works on a single channel; apply it to luminance (L in Lab) so
+    # colour information doesn't skew the contrast curve, then take L as the
+    # final greyscale source.
+    lab = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2LAB)
+    l, a, b = cv2.split(lab)
+    clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
+    l = clahe.apply(l)
+
+    gray = Image.fromarray(l, mode="L")
     gray = ImageOps.autocontrast(gray, cutoff=1)
     gray.save(out)
     print(f"Wrote {out}")
