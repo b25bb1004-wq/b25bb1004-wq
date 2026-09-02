@@ -7,14 +7,36 @@ RAMP = " .`:-=+*cs#%@"
 def main():
     src = Path("assets/source-prepped.png")
     out = Path("assets/arnav-ascii.svg")
-    width, height = 100, 53
+    width = 100
     img = Image.open(src).convert("L")
-    # Portrait-oriented crop: retain face and shoulders while removing blank wall.
-    crop_w = int(img.width * 0.82)
-    crop_h = int(img.height * 0.70)
-    left = (img.width - crop_w) // 2
-    top = int(img.height * 0.16)
-    img = img.crop((left, top, left + crop_w, min(img.height, top + crop_h)))
+    # Crop to the subject's own bounding box, not a fixed percentage of the
+    # frame: prep_photo.py composites onto pure white, so anything below a
+    # near-white threshold is background regardless of how much headroom or
+    # framing the source photo happened to have. A hardcoded crop tuned for
+    # one photo's composition silently mis-crops the next one — this is what
+    # actually broke when the source photo changed.
+    import numpy as np
+    arr = np.array(img)
+    subject_mask = arr < 245
+    crop_aspect = img.width / img.height  # w/h fallback if the mask is empty
+    if subject_mask.any():
+        ys, xs = np.where(subject_mask)
+        pad_x = int(img.width * 0.03)
+        pad_y = int(img.height * 0.02)
+        left = max(0, xs.min() - pad_x)
+        right = min(img.width, xs.max() + pad_x)
+        top_c = max(0, ys.min() - pad_y)
+        bottom = min(img.height, ys.max() + pad_y)
+        img = img.crop((left, top_c, right, bottom))
+        crop_aspect = img.width / img.height
+    # A monospace glyph cell is noticeably taller than it is wide (~0.6 at
+    # this font), so sampling into a fixed height regardless of the crop's
+    # own aspect ratio silently stretches whatever doesn't match the ratio
+    # that height was tuned for — a near-square crop like this one came out
+    # visibly squashed sideways before this fix. Solve for the row count that
+    # actually preserves the crop's proportions through the glyph grid.
+    CELL_ASPECT = 0.6  # glyph advance width / line height, monospace
+    height = max(1, round(width * CELL_ASPECT / crop_aspect))
     img = img.resize((width, height), Image.Resampling.LANCZOS)
 
     rows = []

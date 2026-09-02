@@ -1,51 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 464" role="img" aria-label="Animated ASCII portrait">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 594" role="img" aria-label="Animated ASCII portrait">
 <rect width="100%" height="100%" fill="#0d1117"/>
-<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;fill:#c9d1d9}.reveal{transform-box:fill-box;transform-origin:0% 0%;animation:growDown 1.93s linear forwards}@keyframes growDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}.scanline{animation:scanDown 1.93s linear forwards}@keyframes scanDown{0%{transform:translateY(0);opacity:1}96%{opacity:1}100%{transform:translateY(462px);opacity:0}}</style>
-<clipPath id="reveal"><rect class="reveal" x="0" y="2" width="640" height="462"/></clipPath>
+<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;fill:#c9d1d9}.reveal{transform-box:fill-box;transform-origin:0% 0%;animation:growDown 2.52s linear forwards}@keyframes growDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}.scanline{animation:scanDown 2.52s linear forwards}@keyframes scanDown{0%{transform:translateY(0);opacity:1}96%{opacity:1}100%{transform:translateY(592px);opacity:0}}</style>
+<clipPath id="reveal"><rect class="reveal" x="0" y="2" width="640" height="592"/></clipPath>
 <g clip-path="url(#reveal)">
-<text x="10" y="24">                                                     .:`.</text>
-<text x="10" y="34">                                        .``..   ..``-*cscc*-`</text>
-<text x="10" y="44">                                   .-+*cs%#sss**c%@s**++c****s**+-`</text>
-<text x="10" y="54">                                 -s%@@@#%@%sssccc%@@c*cssc*cs%%@@#*+-</text>
-<text x="10" y="64">                                `#@@@@%@@#c+***c**%scs%@@#sssccs##scc+.</text>
-<text x="10" y="74">                                +%##%%@@%**#%%%#sccscc##c*s%###ss##scs*+:</text>
-<text x="10" y="84">                              :c%%s#%@@@@ss@@@@@%##%##%%ss#%#%%%####%#c*c=</text>
-<text x="10" y="94">                             -%@@@%@@@@@@@%%%#######scs#%#sc#@@@@%#%#%#s*c*`</text>
-<text x="10" y="104">                             *@%@@@@@@@%#c*++***ccccc***++++*cs##%@@@@%##sc*.</text>
-<text x="10" y="114">                             =%%%@@@s##c*=--:::==+==----:::::::=+*c#%%##%sc+.</text>
-<text x="10" y="124">                             :%%%@@%%sc*+=-:::::::``````:``````::-=+s%%#%s*`</text>
-<text x="10" y="134">                             .s@@@@%#sc*+=--:::::::::::----:::::::::+#@##s:</text>
-<text x="10" y="144">                              `s@@@###s*=-:`....`````::::``.````:-::-*#@s=</text>
-<text x="10" y="154">                                -@@##s*+=---::```....`::-::::::---=::=*%=</text>
-<text x="10" y="164">                                 s@#%s***+**c**=-:::`:+*ccc***++*+==--+s`</text>
-<text x="10" y="174">                                .+@%@s*+----=+*cc*+-:=+cccc*++====++==*c:</text>
-<text x="10" y="184">                               =s#%#sscss*sc=:+##c=::-+s##%scccc*+===+*==.</text>
-<text x="10" y="194">                              `*s##c*=--:---=+s#c+=----=+++++======-=+==c=</text>
-<text x="10" y="204">                              `cc##c+-``.``:+cs*-:`...`:-==-=--::::-===-*+</text>
-<text x="10" y="214">                              .cs%sc+-:`..:c*=+*=-:``:```+s+-:````::=+**=+</text>
-<text x="10" y="224">                              `s%%#c=:`...:+cs%%s*+++**+:-ss+-````:-=+c*++</text>
-<text x="10" y="234">                              .#%%#c+:```-=*s#sc*+==-:----+sc+-:::--=+c:==</text>
-<text x="10" y="244">                               *@%#c+-:`-*css*+==-:`:----=*#s*=---===+*::`</text>
-<text x="10" y="254">                                s@ss*-:.`:-*s-:`..``````-c#s#*=---===*=.</text>
-<text x="10" y="264">                                .%#cc+:``-=*cc+=-:--:::--:`-cc-:--=-=+.</text>
-<text x="10" y="274">                                 =@%s*=::-==+==---::``...``:=+-::---=:</text>
-<text x="10" y="284">                                  -%%s*=-++------=-:`````::---:-====c*=-.</text>
-<text x="10" y="294">                                    s@#ccc*+=++=--:::`````:----=++*++===`-:</text>
-<text x="10" y="304">                              .`-+*c#@@%%%%s**+=---:::```:-++++***+--+=.+*+.</text>
-<text x="10" y="314">                             =%%ss##ss%@@@@%#s*++=+++==+*csc*ccc+-:`-+:*css+`</text>
-<text x="10" y="324">                           `s%#*++====#%#%%%%%%##ssss#####ccc*=-:`.`c++s%#ccc+=:</text>
-<text x="10" y="334">                          =##s*++*=:.=%%cs#########sssc***+=--:`..-*++#%sc***++*=:.</text>
-<text x="10" y="344">                        `c%sc*-::::-:c@%scccssccc**++===--::``.`-+*=*%#ccc*++++*ccc*-`</text>
-<text x="10" y="354">                      .=%%cc*=```...+%@#sc*****++==----::::```-+*=+#%#cc*++++*cc*+++++:</text>
-<text x="10" y="364">                .:=cs#@@@#cc*-:`....=s##sc**+++==---::::````-**+=c%%sc*++++++++=+c#sc++=:...</text>
-<text x="10" y="374">           .`=c#%%%%%%@@@%ss*:```. .=+*cssc*+=--:::::::``:=cc*+*#%#c*++++=====*#@@%scs###%#c==-`</text>
-<text x="10" y="384">         `c#%%%#ssccs##@@%#s*-`...``-==+*ss*+=-::::::::-=cs*++s%%sc**++++=+*s%@@@%###%%@@#*=-----.</text>
-<text x="10" y="394">       .+%%##scccccccs##@@%%c-`.````:--==*cc+-:::::--=+c#c**c%%#cc**++==*s%@@@@@%###%%@@s=--:-=*cc</text>
-<text x="10" y="404">     `*%#ss#c+**c****css#@@@#+-:``:..::--=*+=-:::--=+*#c:.:+@%sc**+==+*s%%@@@@@@%##%@@@s+-::=c##c*</text>
-<text x="10" y="414">   :*#@s*s%c===**++***c##s#@@%c=-`.```::-----:`::-=+*s+ .*++#c*+===*sssc#%@@@@@%##%@@@#+=-`=ssc**s</text>
-<text x="10" y="424">  =cc%s*c%s=-=+*=++c**ss*cs%@@@#+-``:`::::::``:::-=*ss-:`=##c+===c@%sccs%%%%@@@%#%@@@%c+-:-*cccs#%</text>
-<text x="10" y="434"> +c*##**#s=-=+c+==***sc==*###%%@#c*=-```::::::--=+*sscc%@#c+===+#@%cc*s%%##%@@%%%@@@@#c+=-+css#%@@</text>
-<text x="10" y="444">+c+c%c*s#=-=+c*==*ccs*--+cscccs#%%%##c+=--:::--=+*sscs%@@s+=+==s@@sc*c#@%ss%@@%%%@@@@#c+==cs#%@@%c</text>
+<text x="10" y="24">                                                      :=:`.</text>
+<text x="10" y="34">                                          .`--:`..`--=cc#sc=`</text>
+<text x="10" y="44">                                       `+cs#%%##scs@%*+=****s#sc=`</text>
+<text x="10" y="54">                                     .c@@@%%@%scc*c%@s*s#scs#%%@#*+.</text>
+<text x="10" y="64">                                     =@@@@@@#c+**c+c#cs%%%sscccs#sc+.</text>
+<text x="10" y="74">                                    .c%#%%@@cc#%%#scscc#s*s%####%#cc*=`</text>
+<text x="10" y="84">                                   `s%#s%@@@ss@@%@%#%##%#s#%#%%###%#cc*.</text>
+<text x="10" y="94">                                  .#@@%%@@@@@%%%#####ss##%sc#@@%#%#%#cc*`</text>
+<text x="10" y="104">                                  =@@@@@@@@%sc****cccc***++*cs##%@@@%#sc+</text>
+<text x="10" y="114">                                  :%%%@@#%s*+=---=+++==--::::-=*c#@%###c+</text>
+<text x="10" y="124">                                  .%%%@@%s*+=-::::::``````````:-=+s%#%#c:</text>
+<text x="10" y="134">                                   s@%@@#s*+=--::::::`:::--:::::::=#%##=</text>
+<text x="10" y="144">                                   :@@@%#sc+=-:````::::--::``::::::*%%c`</text>
+<text x="10" y="154">                                    `#@###*=-:`.......````.````:--:=c%`</text>
+<text x="10" y="164">                                     -@##c******+-:``.`+*****+++==:-*c</text>
+<text x="10" y="174">                                      #%%s*=--=***===:-+*c*+====++=-**</text>
+<text x="10" y="184">                                    :+#%%sc***+-=s#*-:-*#s#ccc*+=+=+c+`</text>
+<text x="10" y="194">                                   .*#%sc***+*+-=#s*---+ccsc+***+--+++=</text>
+<text x="10" y="204">                                   `*s#c+-```:-+#s+-:::-======---===-+c.</text>
+<text x="10" y="214">                                   .cs#c+-`..`=+*+:`. .``=+--::``:==+=*.</text>
+<text x="10" y="224">                                   .s%#s+:`. -s++c*=::=-`-s*-:```:-+c*+.</text>
+<text x="10" y="234">                                   .s@#c=:...:*#%%s*+++*=:cs+-```-=+c=*.</text>
+<text x="10" y="244">                                   .#@#s+:``=*sss**=--::--+sc=--:--+*:=</text>
+<text x="10" y="254">                                    +@#s+-::+csc=-:```:--=c#s+-:-==+*``</text>
+<text x="10" y="264">                                     #%s*-`.:-c*::.`````:*sss=---==*-</text>
+<text x="10" y="274">                                     -@cc+``:=*c*=-:-:`:-:`-c+:---=+.</text>
+<text x="10" y="284">                                      s@s*-:-====---:``...`:+=::--=:</text>
+<text x="10" y="294">                                      .#%s+-++------:`````:--:-==-*c=:</text>
+<text x="10" y="304">                                        s@sc**==+=--::````:---=++*+==-::</text>
+<text x="10" y="314">                                    .:=*#@@%%#c*+=--:::```-++++**=-+-`*+.</text>
+<text x="10" y="324">                                  .s%#%%s#%@@@%s*========*sc*cc+-::=:*cs=</text>
+<text x="10" y="334">                                 :%%*+++++%%%%%%##scsss###scc*-::.=*+s%sc*-`</text>
+<text x="10" y="344">                                -%#c+**:`+@ss#%######sssc**+=-:`.=c+#%sc****-.</text>
+<text x="10" y="354">                               =#sc=:---`c@sccsssscc*+++==-::`.`+*=s#cc*++=+*c*-.</text>
+<text x="10" y="364">                              *@sc+```.`=@@scccc**++=----::```-*++##cc*+++*cc**++.</text>
+<text x="10" y="374">                          :=*#@#cc+:`...=#%sc***++=---::::``:+*=+%%sc++++**+=+*c*=`</text>
+<text x="10" y="384">                      :+c#%@@@@#cc=``.. =csssc*==----:::```+c*=c%#c*+++++==+s@%c*cc**+-:.</text>
+<text x="10" y="394">                   -c#%%%ss##%@%sc-``..`-=*csc*=-::::::::-cc++s%#c*++++==*s@@%###%%@%*==-:</text>
+<text x="10" y="404">                 .c%%#sccccs##@@#s=`..``--=+cc*=-:::::--*#c+*#%sc**++=+c#@@@@###%%@#=-::-=-`</text>
+<text x="10" y="414">                -##s#c*ccc*css#@@#+:````:---+c*=::::-=+c#==c%%sc*++==*#@@@@@%##%%@%+-::+s#c**cs+`</text>
+<text x="10" y="424">              `c%sc#c=+*****cs#%@@s=-`:`.::-=+=-:::-=+cs`.`+%cc*+==*c#%%@@@@%#%@@%*=::*#s**c#@@c=-</text>
+<text x="10" y="434">             =s%c*##===*++***s#c#@@#+-.`:`::--::`::-=cs` +scc*+==c#scs%%@@@%##%@@s+-:=sc*c#@@%*---:</text>
+<text x="10" y="444">            +cs#*c%+-=*+=+c*cs+*#%@@#*-:``::::``::-=*sc+=-ss+==+%@c*c%%%%@@%#%@@%c+--*ccs%@@#+-:::=-</text>
+<text x="10" y="454">           =c*%c*#c-=+c==**cs+=c#s#%@#s*=:``::::--=*sscs@@c===+%@sc*#@##%@%%%@@@%c+-+cs#%@@c=-::-==+</text>
+<text x="10" y="464">          -c+c#*s#=-=c*=*css=-+csccc#%%%%s*=-::--=+cscs@@s+===s@%c*c#@#s%@%%%@@@#*+=*#%%@%*--:-=++++</text>
+<text x="10" y="474">         -#++s#*%+-=+c=+cs#=-+*s*+**ccs%@@@%s+--=*c#s#%@#+===*%@#ccs%%#s%@@%@@@@#*+=c%@@#+--:-+*cc++</text>
+<text x="10" y="484">        :%c+*#sss-==c++cs#=-=+**++*c*css#%%@@##+:=*++#%%c+===#@@cccs%%##%@@@@@@%#*++%@@s+---=*s#sc+=</text>
+<text x="10" y="494">       .%#**c#s#*=-*c+cc#*-=+**=+**+*ssccs%%@@@#=::`+ss#*===*%@%cccs%%##%@@@@@@%#c+c@@s+=-=*s%%s*===</text>
+<text x="10" y="504">       s@c**s%%#+==ccc*#c-=+**+=++==cccccs@###%ss+.-cs#c+==+s@@#cccs%%#%%@@@@@@%#*+%@c++=*s%@%c++===</text>
+<text x="10" y="514">     .#@#c*c#%%c+=csccs#==+**+++**+cccc**s%ss#s=*s`:#%s*+++c%@@#scs#%%%%@@@@@@@@#*c@#*+*c#@@#*====++</text>
+<text x="10" y="524">    `#@@s**s%%#*+*#sss%c=+*****cc*ssscc*cs#ss#s+#*:+#sc*+**s%@@#ss#%@@@@@@@@@@@@#c#@#cs#%@%#c**cssss</text>
+<text x="10" y="534">   :%@@%c**#%%s++s#ss##++cccccsscs##ssccss####%@%+:ssc***cc#@@%#s#%@@@@@@@@@@@@@%#@@%%%@@@%%%%@@@@@@</text>
+<text x="10" y="544">.:c@@@@#c*s%@%c+c##s#%c*cssssssss###sssss#%%##%%#+-##c**cs#%@@%##%@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@</text>
+<text x="10" y="554">#@@%@@@#cc#@@#ccs###%#cs######s#####ssss#%@%#s#@%+=%#ccs##%@@@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#sc</text>
+<text x="10" y="564">%%%%@@@%##%@@#ss#%##%#s####%%#%%#####s##%@%#s+-*@+*%###%%%@@@@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#scc*</text>
+<text x="10" y="574">%%%%%@@%%%@@@###%%%%%##%%%%%%%%%%%%%%%%%@@%%c==+%*#@%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%#ssss</text>
 </g>
 <rect class="scanline" x="0" y="2" width="640" height="2" fill="#58a6ff"/>
 </svg>
