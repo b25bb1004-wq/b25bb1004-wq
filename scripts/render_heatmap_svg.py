@@ -34,7 +34,16 @@ def main():
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="Animated GitHub contribution calendar for b25bb1004-wq">',
         f'<rect width="{width}" height="{height}" rx="10" fill="#0d1117" stroke="#30363d"/>',
-        '<style>.label{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}</style>',
+        # CSS @keyframes, not SMIL <animate>: GitHub's README image pipeline
+        # strips <animate> elements outright, which left every cell frozen at
+        # its `from` state (opacity 0) — an empty grid instead of one that
+        # reveals itself. A diagonal slide-down: fades in while easing up
+        # from a few px below, staggered by the same per-cell delay as before.
+        '<style>'
+        '.label{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}'
+        '.cell{opacity:0;animation:cellIn .32s ease-out both}'
+        '@keyframes cellIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}'
+        '</style>',
         f'<text class="label" x="30" y="27" fill="#c9d1d9" font-size="14">{data["total"]:,} contributions in the last year</text>',
         f'<text class="label" x="30" y="44" fill="#8b949e" font-size="10">{data["longest_streak"]}-day longest streak · public activity</text>',
         '<text class="label" x="4" y="82" fill="#8b949e" font-size="9">Mon</text>',
@@ -49,8 +58,8 @@ def main():
         delay = (col*0.022 + row*0.012)
         title = f"{count} contribution{'s' if count != 1 else ''} on {d.isoformat()}"
         parts.append(
-            f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" fill="{PALETTE[min(level,4)]}" opacity="0">'
-            f'<title>{title}</title><animate attributeName="opacity" from="0" to="1" dur="0.32s" begin="{delay:.3f}s" fill="freeze"/></rect>'
+            f'<rect class="cell" style="animation-delay:{delay:.3f}s" x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" fill="{PALETTE[min(level,4)]}">'
+            f'<title>{title}</title></rect>'
         )
     parts += [
         '<text class="label" x="665" y="171" fill="#8b949e" font-size="10">Less</text>'
