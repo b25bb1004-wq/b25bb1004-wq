@@ -28,6 +28,22 @@ def main():
         top_c = max(0, ys.min() - pad_y)
         bottom = min(img.height, ys.max() + pad_y)
         img = img.crop((left, top_c, right, bottom))
+        # The full bounding box runs down to the shoulders, which on this
+        # photo spread to the full frame width in a dark hoodie — that band
+        # is wide and low-detail, so at ASCII resolution it renders as a
+        # dense, cluttered slab rather than a readable collar/shoulder line.
+        # Keeping only the top 60% (face + a little hair/neck) and then
+        # re-tightening the x-bounds to THAT slice's own content (its own
+        # subject is narrower than the full-width shoulders) is what
+        # actually reads as a face instead of a blob.
+        FACE_FRACTION = 0.54
+        img = img.crop((0, 0, img.width, round(img.height * FACE_FRACTION)))
+        sub_mask = np.array(img) < 245
+        if sub_mask.any():
+            ys2, xs2 = np.where(sub_mask)
+            l2 = max(0, xs2.min() - pad_x)
+            r2 = min(img.width, xs2.max() + pad_x)
+            img = img.crop((l2, 0, r2, img.height))
         crop_aspect = img.width / img.height
     # A monospace glyph cell is noticeably taller than it is wide (~0.6 at
     # this font), so sampling into a fixed height regardless of the crop's
