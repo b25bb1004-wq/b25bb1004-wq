@@ -27,7 +27,7 @@
 
 BTech student at IIT Jodhpur working on LLM training, evaluation and serving. I build the checks that tell you whether a model is right.
 
-- **Now:** a small research model trained to cite only what a checker can verify (retrieval, an entailment model, a word-for-word quote check), and open LLMs served and benchmarked on one 12 GB GPU.
+- **Now:** a small research model trained to cite only what a checker can verify (retrieval, a natural language inference (NLI) model, a word-for-word quote check), and open LLMs served and benchmarked on one 12 GB GPU.
 - **Before:** a voice research agent (2nd in Product at the Murf AI x IIT Bombay hackathon), an F1 strategy engine tested on a held-out season, and an autograd engine written by hand.
 - **Open to:** research and engineering internships in LLM training, evaluation and inference.
 
@@ -42,8 +42,8 @@ practice    held-out evaluation · paired bootstrap · ablations · reproducible
 
 ### `arnav@github ~ $ ls projects/`
 
-- [**HUMBLE**](https://github.com/b25bb1004-wq/firstrun) — follows a repository's setup docs on a clean machine, repairs what breaks with evidence, replays from zero, and opens a PR with a README that provably works. 26 of 31 real open-source repos verified, 36 breaks fixed. Built for the IBM Bob 2.0 Hackathon. [Live demo](https://firstrun-sigma.vercel.app).
-- [**Pitwall**](https://github.com/b25bb1004-wq/F1-Pitstop_Strategy) — F1 lap-time, tyre-degradation and pit-stop decision engine on 2021-2025 data, tested once on the 2025 season: 0.62 s mean error over 109,883 in-race predictions against 1.11 s for repeating the last lap. [Live app](https://b25bb1004-wq.github.io/F1-Pitstop_Strategy/).
+- [**HUMBLE**](https://github.com/b25bb1004-wq/firstrun) — follows a repository's setup docs on a clean machine, repairs what breaks with evidence, replays from zero, and opens a PR with a README that provably works. 26 of 31 real open-source repos verified (14 end-to-end, 12 waiting only on the user's input), 36 breaks fixed. Built for the IBM Bob 2.0 Hackathon. [Live demo](https://firstrun-sigma.vercel.app).
+- [**Pitwall**](https://github.com/b25bb1004-wq/F1-Pitstop_Strategy) — F1 lap-time, tyre-degradation and pit-stop decision engine on 2021-2025 data, tested once on the 2025 season: 0.62 s mean absolute error over 109,883 in-race predictions against 1.11 s for repeating the last lap. [Live app](https://b25bb1004-wq.github.io/F1-Pitstop_Strategy/).
 - [**VOX**](https://github.com/b25bb1004-wq/murf-ai-iitb-hackathon) — real-time voice research agent: live transcription, streaming speech, RAG over PDFs, arXiv, web and patent tools. 2nd in Product, Murf AI x IIT Bombay Techfest.
 - [**llm-from-scratch**](https://github.com/b25bb1004-wq/llm-from-scratch) — a GPT built from the ground up following Karpathy's Zero to Hero; micrograd with tests, makemore in progress.
 - [**DESMOS Engine**](https://github.com/b25bb1004-wq/DESMOS_engine) — C++17 expression parser and function plotter: tokenizer, Shunting-Yard to RPN, stack evaluator.
