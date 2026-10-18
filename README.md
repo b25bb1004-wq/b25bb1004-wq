@@ -25,9 +25,9 @@
 
 ### `arnav@github ~ $ cat about.txt`
 
-BTech student at IIT Jodhpur. I build ML systems and the checks that keep them honest.
+BTech student at IIT Jodhpur working on LLM training, evaluation and serving. I build the checks that tell you whether a model is right.
 
-- **Now:** a small research model whose every citation must pass a program (retrieval, entailment, verbatim-quote check), and open LLMs served and benchmarked on one 12 GB GPU.
+- **Now:** a small research model trained to cite only what a checker can verify (retrieval, an entailment model, a word-for-word quote check), and open LLMs served and benchmarked on one 12 GB GPU.
 - **Before:** a voice research agent (2nd in Product at the Murf AI x IIT Bombay hackathon), an F1 strategy engine tested on a held-out season, and an autograd engine written by hand.
 - **Open to:** research and engineering internships in LLM training, evaluation and inference.
 
@@ -48,7 +48,7 @@ practice    held-out evaluation · paired bootstrap · ablations · reproducible
 - [**llm-from-scratch**](https://github.com/b25bb1004-wq/llm-from-scratch) — a GPT built from the ground up following Karpathy's Zero to Hero; micrograd with tests, makemore in progress.
 - [**DESMOS Engine**](https://github.com/b25bb1004-wq/DESMOS_engine) — C++17 expression parser and function plotter: tokenizer, Shunting-Yard to RPN, stack evaluator.
 - [**Spaghettify**](https://github.com/b25bb1004-wq/spaghettify) — an Electron/WebGL black hole that lenses your screen when you have worked too long.
-- **Faith** (private research) — a small open model that answers research questions only with citations a checker accepts.
+- **Faith** (private research, IIT Jodhpur) — a small open model trained to answer research questions with citations a checker can verify; includes the benchmark, the verifier and the training loop.
 
 ### `arnav@github ~ $ contact`
 
