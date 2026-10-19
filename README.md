@@ -1,15 +1,11 @@
 <p align="center">
-  <img src="assets/hero.svg" width="868" alt="Arnav Yadav: ML systems, LLM training, evaluation and serving. Open to research and engineering internships.">
+  <img src="assets/hero.svg" width="868" alt="Arnav Yadav: ML systems, LLM training, evaluation and serving. Now: teaching a small model to prove its citations and serving open LLMs on one 12 GB GPU.">
 </p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/arnav-yadav-403033378/"><img src="assets/btn-linkedin.svg" width="286" alt="LinkedIn"></a>
   <a href="https://b25bb1004-wq.github.io"><img src="assets/btn-site.svg" width="286" alt="Portfolio"></a>
   <a href="mailto:arnavyadav3008@gmail.com"><img src="assets/btn-mail.svg" width="286" alt="Email"></a>
-</p>
-
-<p align="center">
-  <img src="assets/stats.svg" width="868" alt="26 of 31 real repos verified by HUMBLE; Pitwall 0.62 s error against a 1.11 s baseline; 2nd in Product at the Murf AI x IIT Bombay Techfest; 5 LLMs benchmarked and served on one 12 GB GPU.">
 </p>
 
 <h3 align="center"><code>arnav@github ~ $ ls projects/</code></h3>
@@ -21,8 +17,12 @@
   <a href="https://github.com/b25bb1004-wq/murf-ai-iitb-hackathon"><img src="assets/card-vox.svg" width="432" alt="VOX: real-time voice research agent, 2nd in Product at the Murf AI x IIT Bombay Techfest."></a>
   <img src="assets/card-faith.svg" width="432" alt="Faith (private research): a small open model trained to cite only what a checker can verify.">
   <br>
+  <a href="https://github.com/b25bb1004-wq/local-llm-bench"><img src="assets/card-bench.svg" width="432" alt="local-llm-bench: MMLU and HumanEval for five open LLMs on one 12 GB GPU, with a llama.cpp router."></a>
   <a href="https://github.com/b25bb1004-wq/llm-from-scratch"><img src="assets/card-llm.svg" width="432" alt="llm-from-scratch: a GPT built from the ground up following Karpathy's Zero to Hero."></a>
-  <a href="https://github.com/b25bb1004-wq/DESMOS_engine"><img src="assets/card-desmos.svg" width="432" alt="DESMOS Engine: C++17 expression parser and function plotter."></a>
+</p>
+
+<p align="center">
+  <img src="assets/stats.svg" width="868" alt="26 of 31 real repos verified by HUMBLE; Pitwall 0.62 s error against a 1.11 s baseline; 2nd in Product at the Murf AI x IIT Bombay Techfest; 5 LLMs benchmarked and served on one 12 GB GPU.">
 </p>
 
 <h3 align="center"><code>arnav@github ~ $ cat toolbox.txt</code></h3>

@@ -53,38 +53,88 @@ def chrome(w, title):
 
 
 # ---------------------------------------------------------------- hero
+CYCLE = 22.0  # seconds; the whole scene loops
+START = 10.4  # the clock starts here: the first frame shows scene 1 finished
+
+
+def window_css(name, t_on, t_off):
+    """Keyframes: invisible until t_on, visible until t_off, fades out at the end of the cycle."""
+    a, b = 100 * t_on / CYCLE, 100 * t_off / CYCLE
+    return (f"@keyframes {name}{{0%,{a:.2f}%{{opacity:0}}{a+0.6:.2f}%,{b:.2f}%{{opacity:1}}{b+1.2:.2f}%,100%{{opacity:0}}}}"
+            f".{name}{{animation:{name} {CYCLE}s linear infinite;animation-delay:-{START}s}}")
+
+
+def type_css(name, t_on, dur, t_off):
+    """Typewriter reveal: a clip rectangle that grows in `steps`, then holds, then resets."""
+    a, d, b = 100 * t_on / CYCLE, 100 * dur / CYCLE, 100 * t_off / CYCLE
+    return (f"@keyframes {name}{{0%,{a:.2f}%{{width:0}}{a+d:.2f}%,{b:.2f}%{{width:var(--w)}}{b+0.1:.2f}%,100%{{width:0}}}}"
+            f".{name}{{animation:{name} {CYCLE}s steps(36,end) infinite;animation-delay:-{START}s}}")
+
+
 def hero():
-    w, h = 868, 268
-    body = [f'<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{BLUE}"/>'
-            f'<stop offset="1" stop-color="{GREEN}"/></linearGradient></defs>',
-            f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="{BG}" stroke="{EDGE}"/>',
-            chrome(w, "arnav@iitj: ~/hello"),
-            f'<text x="40" y="92" font-size="15"><tspan fill="{GREEN}">$</tspan><tspan fill="{TEXT}"> whoami</tspan></text>',
-            f'<text x="38" y="156" font-size="56" font-weight="700" fill="url(#g)">Arnav Yadav</text>',
-            f'<text x="40" y="196" font-size="17" fill="{TEXT}">ML systems <tspan fill="{AMBER}">·</tspan> '
-            f'LLM training, evaluation &amp; serving</text>']
-    chip = "open to research & engineering internships"
-    cw_ = width(chip, 13) + 44
-    body += [f'<rect x="40" y="218" width="{cw_:.0f}" height="30" rx="15" fill="#0f2a1a" stroke="#238636"/>',
-             f'<circle cx="58" cy="233" r="4.5" fill="{GREEN}"/>',
-             f'<text x="72" y="238" font-size="13" fill="{GREEN}">{escape(chip)}</text>']
-    # the idea in six lines
-    px, py, pw, ph = 566, 60, 270, 190
-    body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="8" fill="#0b0f14" stroke="#21262d"/>')
-    lines = [[("def ", RED), ("answer", PURPLE), ("(claim):", TEXT)],
-             [("  for ", RED), ("a ", TEXT), ("in ", RED), ("sample(8):", TEXT)],
-             [("    if ", RED), ("verified(a):", TEXT)],
-             [("      vote(a)", TEXT)],
-             [("  return ", RED), ("majority()", TEXT)],
-             [("    or ", RED), ('"can\'t prove it"', GREEN)]]
-    y = py + 34
-    for ln in lines:
-        spans = "".join(f'<tspan fill="{c}">{escape(t).replace(" ", "&#160;")}</tspan>' for t, c in ln)
-        body.append(f'<text x="{px+18}" y="{y}" font-size="13.5" xml:space="preserve">{spans}</text>')
-        y += 25
-    body.append(f'<rect class="cur" x="{px+18+width("    or " + chr(34) + "can't prove it" + chr(34), 13.5)+4:.0f}" '
-                f'y="{y-25-12}" width="8" height="16" fill="{BLUE}"/>')
-    write("hero.svg", w, h, "".join(body), "Arnav Yadav, ML systems student at IIT Jodhpur")
+    w, h = 868, 292
+    css, body, n = [], [], 0
+    body += [f'<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{BLUE}"/>'
+             f'<stop offset="1" stop-color="{GREEN}"/></linearGradient></defs>',
+             f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="{BG}" stroke="{EDGE}"/>',
+             chrome(w, "arnav@iitj: ~/hello")]
+
+    # ---- left: identity (static) + what I am doing now (typed, looping)
+    body += [f'<text x="40" y="92" font-size="15"><tspan fill="{GREEN}">$</tspan><tspan fill="{TEXT}"> whoami</tspan></text>',
+             f'<text x="38" y="154" font-size="56" font-weight="700" fill="url(#g)">Arnav Yadav</text>',
+             f'<text x="40" y="190" font-size="16" fill="{TEXT}">ML systems <tspan fill="{AMBER}">&#183;</tspan> '
+             f'LLM training, evaluation &amp; serving</text>']
+    typed = [(226, 15, [("$", GREEN), (" cat now.txt", TEXT)], 0.6, 1.0),
+             (250, 13.5, [("&gt; ", AMBER), ("teaching a small model to prove its citations", MUTED)], 1.9, 2.2),
+             (272, 13.5, [("&gt; ", AMBER), ("serving open LLMs on one 12 GB GPU", MUTED)], 4.4, 1.8)]
+    last_x = 40
+    for y, size, parts, t_on, dur in typed:
+        n += 1
+        text_w = sum(len(t.replace("&gt;", ">")) for t, _ in parts) * size * CW
+        spans = "".join(f'<tspan fill="{c}" xml:space="preserve">{t}</tspan>' for t, c in parts)
+        cid = f"tw{n}"
+        css.append(type_css(cid, t_on, dur, 19.5).replace("var(--w)", f"{text_w + 6:.0f}px"))
+        body.append(f'<clipPath id="c{cid}"><rect class="{cid}" x="40" y="{y-size}" width="{text_w + 6:.0f}" height="{size+6}"/></clipPath>'
+                    f'<text x="40" y="{y}" font-size="{size}" clip-path="url(#c{cid})">{spans}</text>')
+        last_x = 40 + text_w
+    body.append(f'<rect class="cur" x="{last_x + 6:.0f}" y="{272-13}" width="8" height="15" fill="{BLUE}"/>')
+
+    # ---- right: the answer-or-abstain loop on two demo claims
+    px, py, pw, ph = 508, 56, 328, 216
+    body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="8" fill="#0b0f14" stroke="#21262d"/>'
+                f'<text x="{px+pw-14}" y="{py+18}" font-size="10.5" fill="#484f58" text-anchor="end">demo</text>')
+    scenes = [  # (t_on, t_off, [(text-parts...)])
+        [(0.8, [("$ ", GREEN), ('answer "does X reduce Y?"', TEXT)]),
+         (2.0, [("retrieved 10 candidate papers", MUTED)]),
+         (3.0, [("#1 paper B  ", TEXT), ("&#10007; quote not found", RED)]),
+         (3.9, [("#2 paper A  ", TEXT), ("&#10003; verified", GREEN)]),
+         (4.8, [("#3 paper A  ", TEXT), ("&#10003; verified", GREEN)]),
+         (5.7, [("#4 paper C  ", TEXT), ("&#10007; not entailed", RED)]),
+         (6.6, [("#5 paper A  ", TEXT), ("&#10003; verified", GREEN)]),
+         (8.0, [("vote: ", MUTED), ("paper A", BLUE), (" (3 of 3 verified)", MUTED)]),
+         (9.3, [("&#8594; answered, ", GREEN), ("citation checked", GREEN)])],
+        [(12.2, [("$ ", GREEN), ('answer "does Z improve W?"', TEXT)]),
+         (13.2, [("retrieved 10 candidate papers", MUTED)]),
+         (14.1, [("#1 paper D  ", TEXT), ("&#10007; not entailed", RED)]),
+         (15.0, [("#2 paper E  ", TEXT), ("&#10007; quote not found", RED)]),
+         (15.9, [("#3 paper D  ", TEXT), ("&#10007; not entailed", RED)]),
+         (16.8, [("... 5 more, none verified", MUTED)]),
+         (18.0, [("vote: ", MUTED), ("none", RED)]),
+         (19.2, [("&#8594; abstained, ", AMBER), ("can't prove it", AMBER)])]]
+    scene_off = [11.4, 21.0]
+    y0, dy = py + 40, 20
+    for si, scene in enumerate(scenes):
+        for li, (t_on, parts) in enumerate(scene):
+            n += 1
+            name = f"l{n}"
+            t_start = t_on
+            css.append(window_css(name, t_start, scene_off[si]))
+            spans = "".join(f'<tspan fill="{c}" xml:space="preserve">{t}</tspan>' for t, c in parts)
+            body.append(f'<text class="{name}" x="{px+16}" y="{y0 + li*dy + (6 if li else 0)}" font-size="12.5">{spans}</text>')
+    style_extra = "".join(css)
+    out = svg(w, h, "".join(body), "Arnav Yadav, ML systems student at IIT Jodhpur")
+    out = out.replace("</style>", style_extra + "</style>", 1)
+    (OUT / "hero.svg").write_text(out, encoding="utf-8")
 
 
 # ---------------------------------------------------------------- stats
@@ -120,12 +170,12 @@ CARDS = [
     ("faith", "Faith", "private research", PURPLE,
      "A small open model trained to cite only what a checker can verify: benchmark, verifier and training loop.",
      "every claim measured on held-out data", ["PyTorch", "LoRA", "vLLM"]),
+    ("bench", "local-llm-bench", "5 open LLMs, 1 GPU", "#ff7b72",
+     "MMLU and HumanEval runners plus a llama.cpp router that loads each model on demand, with the raw results.",
+     "35B MoE: 83.7% MMLU, 75.6% HumanEval", ["llama.cpp", "MMLU", "HumanEval"]),
     ("llm", "llm-from-scratch", "Karpathy: Zero to Hero", GREEN,
      "A GPT built from the ground up, one lecture per folder, each run top to bottom. The autograd engine has tests.",
      "micrograd done, makemore in progress", ["Python", "PyTorch", "pytest"]),
-    ("desmos", "DESMOS Engine", "C++17", BLUE,
-     "Expression parser and function plotter: tokenizer, Shunting-Yard to RPN, stack evaluator, ASCII and Matplotlib plots.",
-     "infix to postfix to plot, from scratch", ["C++17", "parsing", "Matplotlib"]),
 ]
 
 
