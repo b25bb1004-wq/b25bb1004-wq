@@ -83,7 +83,7 @@ def hero():
     body += [f'<text x="40" y="92" font-size="15"><tspan fill="{GREEN}">$</tspan><tspan fill="{TEXT}"> whoami</tspan></text>',
              f'<text x="38" y="154" font-size="56" font-weight="700" fill="url(#g)">Arnav Yadav</text>',
              f'<text x="40" y="190" font-size="16" fill="{TEXT}">professional overthinker <tspan fill="{AMBER}">&#183;</tspan> '
-             f'chai enthusiast</text>']
+             f'Red Bull enthusiast</text>']
     typed = [(226, 15, [("$", GREEN), (" cat monster_vibes.txt", TEXT)], 0.6, 1.0),
              (250, 13.5, [("&gt; ", AMBER), ("powered by redbull and bad decisions", MUTED)], 1.9, 2.2),
              (272, 13.5, [("&gt; ", AMBER), ("debugging with print() and hope", MUTED)], 4.4, 1.8)]
@@ -112,8 +112,8 @@ def hero():
          (4.2, [("Okay.", GREEN)]),
          (5.4, [("$ ", GREEN), ("cat motivation.txt", TEXT)]),
          (6.6, [("cat: motivation.txt: No such file", RED)]),
-         (7.6, [("$ ", GREEN), ("./chai.sh", TEXT)]),
-         (8.8, [("Ready. Panic postponed.", GREEN)])],
+         (7.6, [("$ ", GREEN), ("./redbull.sh", TEXT)]),
+         (8.8, [("Wings loaded. Panic postponed.", GREEN)])],
         [(10.8, [("$ ", GREEN), ('cowsay "works on my machine"', TEXT)]),
          (12.0, [(" " + "_" * 21, MUTED)]),
          (12.1, [("&lt; works on my machine &gt;", TEXT)]),
