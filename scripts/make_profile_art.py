@@ -84,8 +84,8 @@ def hero():
              f'<text x="38" y="154" font-size="56" font-weight="700" fill="url(#g)">Arnav Yadav</text>',
              f'<text x="40" y="190" font-size="16" fill="{TEXT}">professional overthinker <tspan fill="{AMBER}">&#183;</tspan> '
              f'chai enthusiast</text>']
-    typed = [(226, 15, [("$", GREEN), (" cat vibes.txt", TEXT)], 0.6, 1.0),
-             (250, 13.5, [("&gt; ", AMBER), ("powered by chai and bad decisions", MUTED)], 1.9, 2.2),
+    typed = [(226, 15, [("$", GREEN), (" cat monster_vibes.txt", TEXT)], 0.6, 1.0),
+             (250, 13.5, [("&gt; ", AMBER), ("powered by redbull and bad decisions", MUTED)], 1.9, 2.2),
              (272, 13.5, [("&gt; ", AMBER), ("debugging with print() and hope", MUTED)], 4.4, 1.8)]
     last_x = 40
     for y, size, parts, t_on, dur in typed:
