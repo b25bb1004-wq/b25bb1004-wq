@@ -103,8 +103,8 @@ def hero():
     px, py, pw, ph = 508, 56, 328, 216
     body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="8" fill="#0b0f14" stroke="#21262d"/>'
                 f'<text x="{px+pw-14}" y="{py+18}" font-size="10.5" fill="#484f58" text-anchor="end">definitely not work</text>')
-    cow = [r"        \   ^__^", r"         \  (oo)\_______", r"            (__)\       )\/\",
-           r"                ||----w |", r"                ||     ||"]
+    cow = ["        \\   ^__^", "         \\  (oo)\\_______", "            (__)\\       )\\/\\",
+           "                ||----w |", "                ||     ||"]
     scenes = [  # one list of (t_on, text-parts) per scene
         [(0.8, [("$ ", GREEN), ("make me a sandwich", TEXT)]),
          (2.0, [("What? Make it yourself.", RED)]),
