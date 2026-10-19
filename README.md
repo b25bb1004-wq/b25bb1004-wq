@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero.svg" width="868" alt="Arnav Yadav: ML systems, LLM training, evaluation and serving. Now: teaching a small model to prove its citations and serving open LLMs on one 12 GB GPU.">
+  <img src="assets/hero.svg" width="868" alt="Arnav Yadav: a terminal window running a few jokes (a sandwich request, a cow, git blame).">
 </p>
 
 <p align="center">

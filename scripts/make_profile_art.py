@@ -53,8 +53,8 @@ def chrome(w, title):
 
 
 # ---------------------------------------------------------------- hero
-CYCLE = 22.0  # seconds; the whole scene loops
-START = 10.4  # the clock starts here: the first frame shows scene 1 finished
+CYCLE = 28.0  # seconds; the whole show loops
+START = 9.4  # the clock starts here: the first frame shows scene 1 finished
 
 
 def window_css(name, t_on, t_off):
@@ -77,51 +77,57 @@ def hero():
     body += [f'<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{BLUE}"/>'
              f'<stop offset="1" stop-color="{GREEN}"/></linearGradient></defs>',
              f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="{BG}" stroke="{EDGE}"/>',
-             chrome(w, "arnav@iitj: ~/hello")]
+             chrome(w, "arnav@3am: ~/hello")]
 
     # ---- left: identity (static) + what I am doing now (typed, looping)
     body += [f'<text x="40" y="92" font-size="15"><tspan fill="{GREEN}">$</tspan><tspan fill="{TEXT}"> whoami</tspan></text>',
              f'<text x="38" y="154" font-size="56" font-weight="700" fill="url(#g)">Arnav Yadav</text>',
-             f'<text x="40" y="190" font-size="16" fill="{TEXT}">ML systems <tspan fill="{AMBER}">&#183;</tspan> '
-             f'LLM training, evaluation &amp; serving</text>']
-    typed = [(226, 15, [("$", GREEN), (" cat now.txt", TEXT)], 0.6, 1.0),
-             (250, 13.5, [("&gt; ", AMBER), ("teaching a small model to prove its citations", MUTED)], 1.9, 2.2),
-             (272, 13.5, [("&gt; ", AMBER), ("serving open LLMs on one 12 GB GPU", MUTED)], 4.4, 1.8)]
+             f'<text x="40" y="190" font-size="16" fill="{TEXT}">professional overthinker <tspan fill="{AMBER}">&#183;</tspan> '
+             f'chai enthusiast</text>']
+    typed = [(226, 15, [("$", GREEN), (" cat vibes.txt", TEXT)], 0.6, 1.0),
+             (250, 13.5, [("&gt; ", AMBER), ("powered by chai and bad decisions", MUTED)], 1.9, 2.2),
+             (272, 13.5, [("&gt; ", AMBER), ("debugging with print() and hope", MUTED)], 4.4, 1.8)]
     last_x = 40
     for y, size, parts, t_on, dur in typed:
         n += 1
         text_w = sum(len(t.replace("&gt;", ">")) for t, _ in parts) * size * CW
         spans = "".join(f'<tspan fill="{c}" xml:space="preserve">{t}</tspan>' for t, c in parts)
         cid = f"tw{n}"
-        css.append(type_css(cid, t_on, dur, 19.5).replace("var(--w)", f"{text_w + 6:.0f}px"))
+        css.append(type_css(cid, t_on, dur, 26.8).replace("var(--w)", f"{text_w + 6:.0f}px"))
         body.append(f'<clipPath id="c{cid}"><rect class="{cid}" x="40" y="{y-size}" width="{text_w + 6:.0f}" height="{size+6}"/></clipPath>'
                     f'<text x="40" y="{y}" font-size="{size}" clip-path="url(#c{cid})">{spans}</text>')
         last_x = 40 + text_w
     body.append(f'<rect class="cur" x="{last_x + 6:.0f}" y="{272-13}" width="8" height="15" fill="{BLUE}"/>')
 
-    # ---- right: the answer-or-abstain loop on two demo claims
+    # ---- right: three little terminal gags on loop
     px, py, pw, ph = 508, 56, 328, 216
     body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="8" fill="#0b0f14" stroke="#21262d"/>'
-                f'<text x="{px+pw-14}" y="{py+18}" font-size="10.5" fill="#484f58" text-anchor="end">demo</text>')
-    scenes = [  # (t_on, t_off, [(text-parts...)])
-        [(0.8, [("$ ", GREEN), ('answer "does X reduce Y?"', TEXT)]),
-         (2.0, [("retrieved 10 candidate papers", MUTED)]),
-         (3.0, [("#1 paper B  ", TEXT), ("&#10007; quote not found", RED)]),
-         (3.9, [("#2 paper A  ", TEXT), ("&#10003; verified", GREEN)]),
-         (4.8, [("#3 paper A  ", TEXT), ("&#10003; verified", GREEN)]),
-         (5.7, [("#4 paper C  ", TEXT), ("&#10007; not entailed", RED)]),
-         (6.6, [("#5 paper A  ", TEXT), ("&#10003; verified", GREEN)]),
-         (8.0, [("vote: ", MUTED), ("paper A", BLUE), (" (3 of 3 verified)", MUTED)]),
-         (9.3, [("&#8594; answered, ", GREEN), ("citation checked", GREEN)])],
-        [(12.2, [("$ ", GREEN), ('answer "does Z improve W?"', TEXT)]),
-         (13.2, [("retrieved 10 candidate papers", MUTED)]),
-         (14.1, [("#1 paper D  ", TEXT), ("&#10007; not entailed", RED)]),
-         (15.0, [("#2 paper E  ", TEXT), ("&#10007; quote not found", RED)]),
-         (15.9, [("#3 paper D  ", TEXT), ("&#10007; not entailed", RED)]),
-         (16.8, [("... 5 more, none verified", MUTED)]),
-         (18.0, [("vote: ", MUTED), ("none", RED)]),
-         (19.2, [("&#8594; abstained, ", AMBER), ("can't prove it", AMBER)])]]
-    scene_off = [11.4, 21.0]
+                f'<text x="{px+pw-14}" y="{py+18}" font-size="10.5" fill="#484f58" text-anchor="end">definitely not work</text>')
+    cow = [r"        \   ^__^", r"         \  (oo)\_______", r"            (__)\       )\/\",
+           r"                ||----w |", r"                ||     ||"]
+    scenes = [  # one list of (t_on, text-parts) per scene
+        [(0.8, [("$ ", GREEN), ("make me a sandwich", TEXT)]),
+         (2.0, [("What? Make it yourself.", RED)]),
+         (3.2, [("$ ", GREEN), ("sudo make me a sandwich", TEXT)]),
+         (4.2, [("Okay.", GREEN)]),
+         (5.4, [("$ ", GREEN), ("cat motivation.txt", TEXT)]),
+         (6.6, [("cat: motivation.txt: No such file", RED)]),
+         (7.6, [("$ ", GREEN), ("./chai.sh", TEXT)]),
+         (8.8, [("Ready. Panic postponed.", GREEN)])],
+        [(10.8, [("$ ", GREEN), ('cowsay "works on my machine"', TEXT)]),
+         (12.0, [(" " + "_" * 21, MUTED)]),
+         (12.1, [("&lt; works on my machine &gt;", TEXT)]),
+         (12.2, [(" " + "-" * 21, MUTED)])] +
+        [(13.0 + 0.1 * i, [(line, AMBER)]) for i, line in enumerate(cow)],
+        [(17.8, [("$ ", GREEN), ('git commit -m "fix"', TEXT)]),
+         (18.8, [("[main 3f2a9c1] fix", MUTED)]),
+         (19.8, [("$ ", GREEN), ('git commit -m "fix fix"', TEXT)]),
+         (20.8, [("[main b81d4e7] fix fix", MUTED)]),
+         (21.8, [("$ ", GREEN), ('git commit -m "final_v2_REAL"', TEXT)]),
+         (22.8, [("[main 0c9ae12] final_v2_REAL", MUTED)]),
+         (23.9, [("$ ", GREEN), ("git blame bug.py", TEXT)]),
+         (25.0, [("every line: you, at 3 am", AMBER)])]]
+    scene_off = [10.0, 17.0, 26.8]
     y0, dy = py + 40, 20
     for si, scene in enumerate(scenes):
         for li, (t_on, parts) in enumerate(scene):
@@ -132,7 +138,7 @@ def hero():
             spans = "".join(f'<tspan fill="{c}" xml:space="preserve">{t}</tspan>' for t, c in parts)
             body.append(f'<text class="{name}" x="{px+16}" y="{y0 + li*dy + (6 if li else 0)}" font-size="12.5">{spans}</text>')
     style_extra = "".join(css)
-    out = svg(w, h, "".join(body), "Arnav Yadav, ML systems student at IIT Jodhpur")
+    out = svg(w, h, "".join(body), "Arnav Yadav, a terminal window running a few jokes")
     out = out.replace("</style>", style_extra + "</style>", 1)
     (OUT / "hero.svg").write_text(out, encoding="utf-8")
 
