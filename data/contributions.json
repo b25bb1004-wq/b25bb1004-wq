@@ -1,8 +1,8 @@
 {
   "username": "b25bb1004-wq",
-  "fetched_at": "2026-10-31",
-  "total": 590,
-  "current_streak": 61,
+  "fetched_at": "2026-11-01",
+  "total": 591,
+  "current_streak": 0,
   "longest_streak": 61,
   "best_day": {
     "date": "2026-09-26",
@@ -10,41 +10,6 @@
     "level": 4
   },
   "days": [
-    {
-      "date": "2025-10-26",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-27",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-28",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-29",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-30",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-31",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-11-01",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2025-11-02",
       "count": 0,
@@ -1862,8 +1827,13 @@
     },
     {
       "date": "2026-10-31",
-      "count": 7,
-      "level": 1
+      "count": 8,
+      "level": 2
+    },
+    {
+      "date": "2026-11-01",
+      "count": 0,
+      "level": 0
     }
   ]
 }
